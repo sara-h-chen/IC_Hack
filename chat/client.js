@@ -8,6 +8,10 @@ jQuery(function($){
   var $messageBox = $('#message');
   var $chat = $('#chat');
 
+  $(window).on('beforeunload', function(){
+    socket.close();
+  });
+
   $nickForm.submit(function(e){
     e.preventDefault();
     socket.emit('new user', $nickBox.val(), function(data){
@@ -31,17 +35,12 @@ jQuery(function($){
 
   $messageForm.submit(function(e){
     e.preventDefault();
-    socket.emit('send-message', $messageBox.val(), function(data){
-      $chat.append('<span class="error">' + data.msg + "</span><br/>");
-    });
+    socket.emit('send-message', $messageBox.val());
     $messageBox.val('');
   });
 
   socket.on('new message', function(data){
-    $chat.val($chat.val() + '<span class="msg"><b>' + data.nick + ": </b>" + data.msg + "</span><br/>");
+    $chat.val($chat.val() + data.nick + ": " + data.msg + "\n");
   });
-
-  socket.on('whisper', function(data){
-    $chat.append('<span class="whisper"><b>' + data.nick + ": </b>" + data.msg + "</span><br/>");
-  });
+  
 });

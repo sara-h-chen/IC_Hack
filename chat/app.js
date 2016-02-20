@@ -29,26 +29,9 @@ io.sockets.on('connection', function(socket){
     io.sockets.emit('usernames', Object.keys(users));
   }
 
-  socket.on('send-message', function(data, callback){
+  socket.on('send-message', function(data){
     var msg = data.trim();
-    if(msg.substr(0,3) === '/w '){
-      msg = msg.substr(3);
-      var ind = msg.indexOf(' ');
-      if(ind != -1){
-        var name = msg.substring(0, ind);
-        var msg = msg.substring(ind + 1);
-        if(name in users){
-          users[name].emit('whisper', {msg: msg, nick: socket.nickname})
-          console.log('whisper');
-        }else{
-          callback('Error: enter a valid user');
-        }
-      }else{
-        callback('Error: please enter a message for your whisper');
-      }
-    }else{
-      io.sockets.emit('new message', {msg: data, nick: socket.nickname});
-    }
+    io.sockets.emit('new message', {msg: data, nick: socket.nickname});
   });
 
   socket.on('disconnect', function(data){

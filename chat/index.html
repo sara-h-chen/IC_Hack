@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Yoda Chat</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  </head>
+
+  <body>
+    
+    <header class="jumbotron">
+      <div class="container">
+        <div class="row row-header">
+          <div class="col-xs-12">
+            <h1>Yoda Chat</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row" id="nickWrap">
+      <div class="col-sm-6 col-sm-push-3">
+        <p>Enter a username:</p>
+        <p id="nickError"></p>
+        <form class="form-horizontal" id="setNick">
+          <input class="form-control" type="text" size="35" id="nickname" autocomplete="off">
+          <input class="form-control btn-primary" type="submit" value="Enter chat">
+        </form>
+      </div>
+    </div>
+
+    <div class="row" id="contentWrap">
+        <div class="col-sm-6 col-sm-push-3" id="chatWrap">
+          <form class="form-horizontal" id="send-message">
+            <textarea class="form-control" rows="20" id="chat" readonly></textarea>
+            <input type="text" class="form-control" id="message" autocomplete="off">
+            <input class="form-control btn-primary" type="submit">
+          </form>
+        </div>
+        <div id="users"></div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>

@@ -56,10 +56,18 @@ html {
 	/*display: block;*/
 }
 
+input.btn-primary:hover {
+	font-size: 1em;
+	font-family: 'Play', sans-serif;
+	font-weight: bold;
+	background-color: #CCCC00;
+	border-color: #CCCC00;
+}
+
 input.btn-primary {
 	font-size: 1em;
 	font-family: 'Play', sans-serif;
 	font-weight: bold;
 	background-color: #707070;
 	border-color: #707070;
-
+}

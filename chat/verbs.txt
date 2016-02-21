@@ -1963,6 +1963,7 @@ bayonets
 bayonetted
 bayonetting
 bays
+be
 beach
 beaches
 beacon
@@ -12936,7 +12937,8 @@ haul
 hauls
 haunt
 haunts
-have (to)?
+have
+have to
 haven
 havens
 haver
@@ -14977,6 +14979,7 @@ irritates
 irritating
 irrupt
 irrupts
+is
 island
 island-hop
 island-hops

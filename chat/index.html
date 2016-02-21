@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script type="text/javascript" src="clickEvent.js"></script>
+    <!--<script type="text/javascript" src="clickEvent.js"></script>-->
     <title>Jedi Encoder</title>
     <!-- Custom font -->
     <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
@@ -34,15 +33,15 @@
         <p style="align-content: center; font-family: 'Play', sans-serif; font-size: 2em; color: #A0A0A0">Enter a username:</p>
         <p id="nickError"></p>
         <form class="form-horizontal" id="setNick">
-          <input class="form-control" type="text" size="35" id="nickname" autocomplete="off">
-          <input class="form-control btn-primary" id="clicked" type="submit" value="Enter chat">
+          <input class="form-control" type="text" size="35" id="nickname" style="font-size: 20px" autocomplete="off">
+          <input class="form-control btn-primary" type="submit" value="Enter chat">
         </form>
       </div>
     </div>
     <div class="row" id="contentWrap" style="background-color: rgba(0,0,0,0.0);">
         <div class="col-sm-6 col-sm-push-3" id="chatWrap" style="background-color: rgba(0,0,0,0.0); margin-left: auto; margin-right: auto; width: device-width">
           <form class="form-horizontal" id="send-message">
-            <textarea class="form-control" rows="20" id="chat" readonly></textarea>
+            <textarea class="form-control" rows="3" id="chat" style="font-size: 20px" readonly></textarea>
             <input type="text" class="form-control" id="message" autocomplete="off">
             <input class="form-control btn-primary" type="submit">
           </form>
@@ -51,7 +50,9 @@
     </div>
 
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="client.js"></script>
   </body>
 </html>

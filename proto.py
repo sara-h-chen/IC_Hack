@@ -27,35 +27,39 @@ pat_no_person_text = pat_start + '(' + pat_modal + pat_verb + ')' + pat_end
 pat_no_person = re.compile(pat_no_person_text)
 
 while True:
-  text = ' ' + input()
+  text = ' ' + input().lower()
   text = re.sub(' ', '  ', text)
-  match = re.search(pat, text)
-  if match:
-    n = len(match.groups())
-    #for i in range(n+1):
-    #  print(i, " : ",  match.group(i))
-    result = match.group(1) + ' ' + match.group(11) + ' ' + match.group(2) + ' ' + match.group(n)
-    result = re.sub('\s+', ' ', result)
-    print(result)
-    continue
-  match = re.search(pat_question, text)
-  if match:
-    #question
-    n = len(match.groups())
-    #for i in range(n+1):
-    #  print(i, " : ",  match.group(i))
-    result = match.group(9) + ' ' + match.group(5) + ' ' + match.group(8) + ' ' + match.group(n)
-    result = re.sub('\s+', ' ', result)
-    print(result)
-    continue
-  match = re.search(pat_no_person, text)
-  if match:
-    # no person
-    n = len(match.groups())
-    #for i in range(n+1):
-    #  print(i, " : ",  match.group(i))
-    result = match.group(10) + ' ' + match.group(2) + ' ' + match.group(1) + ' ' + match.group(n)
-    result = re.sub('\s+', ' ', result)
-    print(result)
-    continue
-  print(text)
+  sentences = re.split('(?<=[.?])\s', text)
+  converted = ''
+  for sentence in sentences:
+    match = re.search(pat, sentence)
+    if match:
+      n = len(match.groups())
+      #for i in range(n+1):
+      #  print(i, " : ",  match.group(i))
+      result = match.group(1) + ' ' + match.group(11) + ' ' + match.group(2) + ' ' + match.group(n)
+      result = re.sub('\s+', ' ', result)
+      converted += result
+      continue
+    match = re.search(pat_question, sentence)
+    if match:
+      #question
+      n = len(match.groups())
+      #for i in range(n+1):
+      #  print(i, " : ",  match.group(i))
+      result = match.group(9) + ' ' + match.group(5) + ' ' + match.group(8) + ' ' + match.group(n)
+      result = re.sub('\s+', ' ', result)
+      converted += result
+      continue
+    match = re.search(pat_no_person, sentence)
+    if match:
+      # no person
+      n = len(match.groups())
+      #for i in range(n+1):
+      #  print(i, " : ",  match.group(i))
+      result = match.group(10) + ' ' + match.group(2) + ' ' + match.group(1) + ' ' + match.group(n)
+      result = re.sub('\s+', ' ', result)
+      converted += result
+      continue
+    converted += sentence
+  print(converted)

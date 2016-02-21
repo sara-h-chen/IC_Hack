@@ -44,7 +44,9 @@ io.sockets.on('connection', function(socket){
 
   socket.on('send-message', function(data){
     var msg = data.trim();
-    pyshell.send(msg);
+    if(msg !== '') {
+      pyshell.send(msg);
+    }
     //io.sockets.emit('new message', {msg: data, nick: socket.nickname});
   });
 

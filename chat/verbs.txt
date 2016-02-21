@@ -12936,7 +12936,8 @@ haul
 hauls
 haunt
 haunts
-have (to)?
+have
+have to
 haven
 havens
 haver

@@ -2,6 +2,8 @@
 import re
 
 person = ['\si\s', '\syou\s', '\she\s', '\sshe\s', '\sit\s', '\sthey\s', '\swe\s']
+person = person + ['\s' + name + '\s' for name in open('names.txt')]
+
 person_possessive = ['\smy\s', '\smine\s', '\syours\s', '\sours\s', '\stheirs\s', '\shis\s', '\shers\s']
 pronoun = ['\sme\s', '\syou\s', '\shim\s', '\sher\s', '\sus\s', '\sthem\s']
 verbs = ['\s' + verb.rstrip('\n') for verb in open('verbs.txt')]

@@ -7,7 +7,7 @@ var PythonShell = require('python-shell');
 
 var users = {};
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
 
 app.use(express.static('.'));
 

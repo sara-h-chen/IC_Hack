@@ -1,10 +1,64 @@
+header.back {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.0);
+}
+
+.ontop {
+	background-color: rgba(0,0,0,0.0);
+	position: relative;
+	z-index: -1;
+}
+
+html { 
+  background-color: #000000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.form-horizontal {
+	margin-left: auto;
+	margin-right: auto;
+	width = device-width;
+	initial-scale = 1;
+}
+
+.transbox {
+	background-color: rgba(0,0,0,0.0);
+}
+
+.row {
+	height:30%;
+	width: 100%
+}
+
 #chat {
   height:500px;
 }
+
 #contentWrap{
-  display:none;
+ /*display: none;*/
+  width: 100%;
 }
+
 #chatWrap{
   border: 1px #000 solid;
 }
+
+.jumbotron {
+	margin-right: auto;
+	margin-left: auto;
+	/*display: block;*/
+}
+
+input.btn-primary {
+	font-size: 1em;
+	font-family: 'Play', sans-serif;
+	font-weight: bold;
+	background-color: #707070;
+	border-color: #707070;
 

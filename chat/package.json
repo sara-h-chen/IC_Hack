@@ -4,7 +4,8 @@
   "private":"true",
   "dependencies":{
     "socket.io":"1.4.5",
-    "express":"4.13.4"
+    "express":"4.13.4",
+    "python-shell":"0.3.0"
   },
   "main":"server.js",
   "scripts":{

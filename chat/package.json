@@ -10,5 +10,9 @@
   "main":"server.js",
   "scripts":{
     "start":"node server.js"
+  },
+  "engines":{
+    "node":"5.4.1",
+    "npm":"3.3.12"
   }
 }

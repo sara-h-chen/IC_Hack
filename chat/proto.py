@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import re
 
 person = ['i', 'you', 'he', 'she', 'it', 'they', 'we']
@@ -26,3 +27,5 @@ while True:
       # no 'to'
       offset = 1
     print(match.group(1) + ' ' + match.group(5+offset) + ' ' + match.group(2))
+  else:
+    print(text)

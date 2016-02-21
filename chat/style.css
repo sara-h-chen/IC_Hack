@@ -2,7 +2,7 @@
   height:500px;
 }
 #contentWrap{
-  //display:none;
+  display:none;
 }
 #chatWrap{
   border: 1px #000 solid;

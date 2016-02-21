@@ -3,6 +3,8 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
 
+var PythonShell = require('python-shell');
+
 var users = {};
 
 server.listen(3000);
@@ -14,6 +16,17 @@ app.get('/', function(req, res){
 });
 
 io.sockets.on('connection', function(socket){
+  var pyshell = new PythonShell('proto.py', {pythonPath : 'python3', mode : 'text'});
+
+  pyshell.on('message', function(message) {
+    console.log(message);
+    io.sockets.emit('new message', {msg: message, nick: socket.nickname});
+  });
+
+  pyshell.on('error', function(err) {
+    console.log(err);
+  });
+
   socket.on('new user', function(data, callback){
     if (data in users){
       callback(false);
@@ -31,7 +44,8 @@ io.sockets.on('connection', function(socket){
 
   socket.on('send-message', function(data){
     var msg = data.trim();
-    io.sockets.emit('new message', {msg: data, nick: socket.nickname});
+    pyshell.send(msg);
+    //io.sockets.emit('new message', {msg: data, nick: socket.nickname});
   });
 
   socket.on('disconnect', function(data){

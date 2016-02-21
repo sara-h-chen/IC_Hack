@@ -8,6 +8,9 @@ jQuery(function($){
   var $messageBox = $('#message');
   var $chat = $('#chat');
 
+  $chat.change(function(){
+  });
+
   $(window).on('beforeunload', function(){
     socket.close();
   });
@@ -41,6 +44,7 @@ jQuery(function($){
 
   socket.on('new message', function(data){
     $chat.val($chat.val() + data.nick + ": " + data.msg + "\n");
+    $chat.scrollTop( $chat[0].scrollHeight - $chat.height()   );
   });
   
 });

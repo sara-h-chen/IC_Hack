@@ -28,7 +28,7 @@ io.sockets.on('connection', function(socket){
   });
 
   socket.on('new user', function(data, callback){
-    if (data in users){
+    if (data ==='' || data in users){
       callback(false);
     } else {
       callback(true);
